@@ -1,4 +1,5 @@
-import HashTable from '../HashTable';
+// import HashTable from '../HashTable';
+import HashTable from '../MyHashTable';
 
 describe('HashTable', () => {
   it('should create hash table of certain size', () => {

@@ -1,4 +1,5 @@
-import DoublyLinkedList from '../DoublyLinkedList';
+// import DoublyLinkedList from '../DoublyLinkedList';
+import DoublyLinkedList from '../MyDoublyLinkedList';
 
 describe('DoublyLinkedList', () => {
   it('should create empty linked list', () => {
@@ -34,6 +35,12 @@ describe('DoublyLinkedList', () => {
     expect(linkedList.tail.previous.next).toBe(linkedList.tail);
     expect(linkedList.tail.previous.value).toBe(2);
     expect(linkedList.toString()).toBe('3,2,1');
+
+    linkedList.toArray().forEach((node) => {
+      linkedList.deleteTail();
+      linkedList.prepend(node.value);
+    });
+    expect(linkedList.toString()).toBe('1,2,3');
   });
 
   it('should create linked list from array', () => {
@@ -41,6 +48,9 @@ describe('DoublyLinkedList', () => {
     linkedList.fromArray([1, 1, 2, 3, 3, 3, 4, 5]);
 
     expect(linkedList.toString()).toBe('1,1,2,3,3,3,4,5');
+
+    linkedList.fromArray([6, 7]);
+    expect(linkedList.toString()).toBe('1,1,2,3,3,3,4,5,6,7');
   });
 
   it('should delete node by value from linked list', () => {
@@ -57,11 +67,13 @@ describe('DoublyLinkedList', () => {
     linkedList.append(4);
     linkedList.append(5);
 
+    expect(linkedList.toString()).toBe('1,1,2,3,3,3,4,5');
     expect(linkedList.head.toString()).toBe('1');
     expect(linkedList.tail.toString()).toBe('5');
 
     const deletedNode = linkedList.delete(3);
     expect(deletedNode.value).toBe(3);
+    expect(linkedList.toString()).toBe('1,1,2,4,5');
     expect(linkedList.tail.previous.previous.value).toBe(2);
     expect(linkedList.toString()).toBe('1,1,2,4,5');
 

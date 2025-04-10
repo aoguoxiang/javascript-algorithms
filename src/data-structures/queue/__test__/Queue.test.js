@@ -1,4 +1,5 @@
-import Queue from '../Queue';
+// import Queue from '../Queue';
+import Queue from '../MyQueue';
 
 describe('Queue', () => {
   it('should create empty queue', () => {

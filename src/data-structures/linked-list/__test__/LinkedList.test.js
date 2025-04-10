@@ -1,4 +1,5 @@
-import LinkedList from '../LinkedList';
+// import LinkedList from '../LinkedList';
+import LinkedList from '../MyLinkedList';
 
 describe('LinkedList', () => {
   it('should create empty linked list', () => {
@@ -16,6 +17,7 @@ describe('LinkedList', () => {
     linkedList.append(2);
 
     expect(linkedList.toString()).toBe('1,2');
+    expect(linkedList.head.next.value).toBe(2);
     expect(linkedList.tail.next).toBeNull();
   });
 
@@ -123,6 +125,22 @@ describe('LinkedList', () => {
     expect(linkedList.toString()).toBe('');
     expect(linkedList.head).toBeNull();
     expect(linkedList.tail).toBeNull();
+
+    linkedList
+      .append(1)
+      .append(3)
+      .append(2)
+      .append(3);
+
+    expect(linkedList.toString()).toBe('1,3,2,3');
+    expect(linkedList.head.toString()).toBe('1');
+    expect(linkedList.tail.toString()).toBe('3');
+
+    const deletedNode4 = linkedList.deleteTail();
+    expect(deletedNode4.value).toBe(3);
+    expect(linkedList.toString()).toBe('1,3,2');
+    expect(linkedList.head.toString()).toBe('1');
+    expect(linkedList.tail.toString()).toBe('2');
   });
 
   it('should delete linked list head', () => {

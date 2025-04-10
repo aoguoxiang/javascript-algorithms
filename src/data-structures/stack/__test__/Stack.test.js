@@ -1,4 +1,5 @@
-import Stack from '../Stack';
+// import Stack from '../Stack';
+import Stack from '../MyStack';
 
 describe('Stack', () => {
   it('should create empty stack', () => {
