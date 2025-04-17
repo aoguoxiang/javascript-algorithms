@@ -1,6 +1,6 @@
 import Comparator from '../MyComparator';
 
-describe('Comparator', () => {
+describe('MyComparator', () => {
   it('should compare with default comparator function', () => {
     const comparator = new Comparator();
 
@@ -38,13 +38,21 @@ describe('Comparator', () => {
     expect(comparator.greaterThanOrEqual('aa', 'a')).toBe(true);
     expect(comparator.greaterThanOrEqual('a', 'a')).toBe(true);
 
-    // comparator.reverse();
+    comparator.reverse();
 
-    // expect(comparator.equal('a', 'b')).toBe(true);
-    // expect(comparator.equal('a', '')).toBe(false);
-    // expect(comparator.lessThan('b', 'aa')).toBe(false);
-    // expect(comparator.greaterThanOrEqual('a', 'aa')).toBe(true);
-    // expect(comparator.greaterThanOrEqual('aa', 'a')).toBe(false);
-    // expect(comparator.greaterThanOrEqual('a', 'a')).toBe(true);
+    expect(comparator.equal('a', 'b')).toBe(true);
+    expect(comparator.equal('a', '')).toBe(false);
+    expect(comparator.lessThan('b', 'aa')).toBe(false);
+    expect(comparator.greaterThanOrEqual('a', 'aa')).toBe(true);
+    expect(comparator.greaterThanOrEqual('aa', 'a')).toBe(false);
+    expect(comparator.greaterThanOrEqual('a', 'a')).toBe(true);
+
+    comparator.reverse();
+    expect(comparator.equal('a', 'b')).toBe(true);
+    expect(comparator.equal('a', '')).toBe(false);
+    expect(comparator.lessThan('b', 'aa')).toBe(true);
+    expect(comparator.greaterThanOrEqual('a', 'aa')).toBe(false);
+    expect(comparator.greaterThanOrEqual('aa', 'a')).toBe(true);
+    expect(comparator.greaterThanOrEqual('a', 'a')).toBe(true);
   });
 });
