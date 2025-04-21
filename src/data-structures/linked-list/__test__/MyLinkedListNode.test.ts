@@ -1,4 +1,3 @@
-// import LinkedListNode from '../LinkedListNode';
 import LinkedListNode from '../MyLinkedListNode';
 
 describe('LinkedListNode', () => {
@@ -25,11 +24,11 @@ describe('LinkedListNode', () => {
     expect(node1.next).toBeDefined();
     expect(node2.next).toBeNull();
     expect(node1.value).toBe(1);
-    expect(node1.next.value).toBe(2);
+    expect(node1.next!.value).toBe(2);
   });
 
   it('should convert node to string', () => {
-    const node = new LinkedListNode(1);
+    const node = new LinkedListNode<any>(1);
 
     expect(node.toString()).toBe('1');
 

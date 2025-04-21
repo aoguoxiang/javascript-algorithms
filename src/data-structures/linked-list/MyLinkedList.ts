@@ -1,8 +1,8 @@
 import LinkedListNode from './MyLinkedListNode';
-import Comparator from '../../utils/comparator/Comparator';
+import Comparator from '../../utils/comparator/MyComparator';
 
 export default class MyLinkedList {
-  constructor(comparatorFn) {}
+  constructor(comparatorFn?: Comparator) {}
 
   prepend(value) {}
 
@@ -22,7 +22,7 @@ export default class MyLinkedList {
 
   toArray() {}
 
-  toString(callback) {}
+  toString(callback?: () => string) {}
 
   reverse() {}
 }

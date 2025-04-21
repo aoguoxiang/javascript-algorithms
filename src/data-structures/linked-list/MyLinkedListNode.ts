@@ -1,5 +1,8 @@
 export default class MyLinkedListNode<T = any> {
-    constructor(public value: T, public next?: MyLinkedListNode) {}
+    next: MyLinkedListNode | null
+    constructor(public value: T, next?: MyLinkedListNode) {
+        this.next = next ?? null;
+    }
 
     toString(stringifier?: (value: T) => string): string {
         if (typeof stringifier === "function") {
